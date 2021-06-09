@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BillUberSprite
+  m_Shader: {fileID: 4800000, guid: c47f00b46efb20c449a1511a7c3dccc4, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA USE_SHADOW
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _BlurIntensity: 0.005
+    - _ChromaticAberrAlpha: 0.4
+    - _ChromaticAberrFactor: 0.057
+    - _DesaturateFactor: 1
+    - _EnableExternalAlpha: 0
+    - _PixelResolution: 270
+    - _UseBlur: 0
+    - _UseChromaticAberr: 0
+    - _UseDesaturate: 0
+    - _UseInnerOutline: 0
+    - _UseOutline: 0
+    - _UsePixelate: 0
+    - _UseShadow: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _InnerOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _InnerOutlineWidth_Alpha_Glow: {r: 0.001, g: 1, b: 1, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineWidth_Alpha_Glow: {r: 0.001, g: 1, b: 1, a: 0}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowOffset: {r: 0.01, g: 0.01, b: 0, a: 0}
