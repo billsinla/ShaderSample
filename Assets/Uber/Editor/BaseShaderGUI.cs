@@ -128,6 +128,15 @@ public class BaseShaderGUI : ShaderGUI
         return val;
     }
 
+    protected bool ShowBool(string name, string tips)
+    {
+        var res = target.GetInt(name);
+        var val = EditorGUILayout.Toggle(tips, res > 0.5f);
+        res = val ? 1 : 0;
+        target.SetInt(name, res);
+        return val;
+    }
+
     protected float ShowFloat(string name, string tips, int idx)
     {
         var res = target.GetVector(name);

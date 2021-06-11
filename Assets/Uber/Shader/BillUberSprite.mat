@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: BillUberSprite
   m_Shader: {fileID: 4800000, guid: c47f00b46efb20c449a1511a7c3dccc4, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA USE_SHADOW
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -41,14 +41,14 @@ Material:
     - _UseInnerOutline: 0
     - _UseOutline: 0
     - _UsePixelate: 0
-    - _UseShadow: 1
+    - _UseShadow: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _InnerOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _InnerOutlineWidth_Alpha_Glow: {r: 0.001, g: 1, b: 1, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineWidth_Alpha_Glow: {r: 0.001, g: 1, b: 1, a: 0}
+    - _OutlineWidth_Alpha_Glow: {r: 0.02, g: 1, b: 1, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
     - _ShadowOffset: {r: 0.01, g: 0.01, b: 0, a: 0}

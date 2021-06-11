@@ -82,6 +82,17 @@ float _GetBorderAlpha(sampler2D tex, float2 uv, float offset)
     return result;
 }
 
+// 外部描边
+float4 DrawOutline(float4 rawCol, sampler2D tex, float2 uv, float4 outlineColor, float width, float alpha, float glow)
+{
+    float result = _GetBorderAlpha(tex, uv, width);
+    result = step(0.01, result);
+    result *= (1 - rawCol.a) * alpha;
+    fixed4 outline = result * outlineColor;
+    outline.rgb *= glow * 2;
+    return lerp(outline, rawCol, rawCol.a);
+}
+
 inline fixed3 _GetPixel(float offsetX, float offsetY, fixed2 uv, sampler2D tex)
 {
     return tex2D(tex, (uv + fixed2(offsetX, offsetY))).rgb;
@@ -98,18 +109,6 @@ float4 DrawInnerOutline(float4 rawCol, sampler2D tex, float2 uv, float4 outlineC
     rawCol.rgb = lerp(rawCol.rgb, outlineColor.rgb, outlineVal);
     return rawCol;
 }
-
-// 外部描边
-float4 DrawOutline(float4 rawCol, sampler2D tex, float2 uv, float4 outlineColor, float width, float alpha, float glow)
-{
-    float result = _GetBorderAlpha(tex, uv, width);
-    result = step(0.01, result);
-    result *= (1 - rawCol.a) * alpha;
-    fixed4 outline = result * outlineColor;
-    outline.rgb *= glow * 2;
-    return lerp(outline, rawCol, rawCol.a);
-}
-
 
 float4 Contrast(float4 color, float4 blurred, float intensity, float threshold)
 {

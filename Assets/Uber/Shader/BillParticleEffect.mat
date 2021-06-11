@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: BillParticleEffect
   m_Shader: {fileID: 4800000, guid: fedf7a5c7e73ab140bfe26f90eda7ba9, type: 3}
-  m_ShaderKeywords: USE_DISTORT USE_FLOW_DISTORT _BLENDMODE_TRANSPARENT
+  m_ShaderKeywords: USE_DISSOLVE _BLENDMODE_BLEND
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -21,11 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _DissolveTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 140c5b15ccac91a4fb58b5ea4666c02f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistortTex:
-        m_Texture: {fileID: 2800000, guid: 9fcfeeb901a2a402a9e5fc40ac97da8a, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -37,19 +37,22 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlendMode: 4
+    - _BlendMode: 1
     - _BlendOp: 0
-    - _ColorFactor: 0.5
+    - _ColorFactor: 1
     - _CullMode: 0
     - _DissolveProgress: 0
-    - _DissolveRange: 0.2
+    - _DissolveRange: 0
     - _DstBlend: 10
     - _InvFade: 1
-    - _SrcBlend: 1
+    - _IsAlphaDissolve: 0
+    - _IsClipDissolve: 0
+    - _SrcBlend: 5
+    - _UseAlphaDissolve: 0
     - _UseSoftParticle: 0
     - _ZWrite: 0
     m_Colors:
-    - _DissolveColor: {r: 0.8301887, g: 0.4287129, b: 0.27020293, a: 1}
+    - _DissolveColor: {r: 0, g: 0, b: 0, a: 1}
     - _DistortSpeed2_Factor2: {r: 1, g: 0, b: 1, a: 1}
     - _DistortUVFactor2_RotateSpeed1: {r: 0.05, g: 0.07, b: 0, a: 1}
     - _MainSpeed2_MaskSpeed2: {r: 0, g: 0, b: 0, a: 0}

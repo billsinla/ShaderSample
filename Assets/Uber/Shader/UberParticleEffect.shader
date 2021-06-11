@@ -23,6 +23,7 @@
         _DissolveProgress("DissolveProgress", Range( 0 , 1)) = 0
         [HDR] _DissolveColor ("DissolveColor", Color) = (1,1,1,1)
         _DissolveRange("DissolveRange", Range( 0 , 1)) = 0.5
+        _IsClipDissolve("IsClipDissolve", Int) = 0
 
         [Header(SoftParticle)]
         [Toggle(USE_SOFTPARTICLES)] _UseSoftParticle("Use Soft Particle", Int) = 0
@@ -69,6 +70,7 @@
             #pragma shader_feature USE_DISSOLVE
             #pragma shader_feature USE_SOFTPARTICLES
             #pragma shader_feature USE_FLOW_DISTORT
+            #pragma shader_feature USE_CLIP_DISSOLVE
 
             float4 _TintColor;
             float _ColorFactor;
@@ -204,18 +206,25 @@
                 //溶解
                 #ifdef USE_DISSOLVE
                 float customData = i.customData.x;
-                float progress = customData + _DissolveProgress + 0.001;
+                float progress = customData + _DissolveProgress;
                 float dissolveVal = tex2D(_DissolveTex, i.DistortUV2_DissolveUV2.zw).r * mainCol.a;
-                clip(dissolveVal - progress);
 
                 float dissolveBorderVal = saturate((dissolveVal - progress));
                 dissolveBorderVal = saturate(1 - smoothstep(0, _DissolveRange, dissolveBorderVal)) * step(
                     dissolveBorderVal, _DissolveRange);
 
                 mainCol = lerp(mainCol, _DissolveColor, dissolveBorderVal);
+
+                #ifdef USE_CLIP_DISSOLVE
+                clip(dissolveVal - progress);
+                #else
+                mainCol.a = saturate(dissolveVal - progress);
+                //mainCol *= saturate(dissolveVal - progress);
                 #endif
 
-                fixed4 finalCol = mainCol * i.color * _TintColor * (maskVal * _ColorFactor * 2);
+                #endif
+
+                fixed4 finalCol = mainCol * i.color * _TintColor * (maskVal * _ColorFactor);
                 return finalCol;
             }
             ENDCG

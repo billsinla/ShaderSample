@@ -38,7 +38,7 @@ public class UberParticleGUI : BaseShaderGUI
         ShowBlock("_DistortTex", "USE_DISTORT", () =>
         {
             ShowPropertys("_DistortTex");
-            var isFlowDistort = ShowBool("_DistortUVFactor2_RotateSpeed1", "Is Flow Distort?", 3);
+            var isFlowDistort = ShowBool("_DistortUVFactor2_RotateSpeed1", "Is Flow Distort", 3);
             if (isFlowDistort)
             {
                 ShowVector2("_DistortSpeed2_Factor2", "DistortTexture FlowSpeed", 0, 1);
@@ -58,6 +58,8 @@ public class UberParticleGUI : BaseShaderGUI
             ShowPropertys("_DissolveProgress");
             ShowPropertys("_DissolveColor");
             ShowPropertys("_DissolveRange");
+            var isClipDissolve = ShowBool("_IsClipDissolve", "Is Clip Dissolve");
+            SetKeyword("USE_CLIP_DISSOLVE", isClipDissolve);
         });
     }
 
